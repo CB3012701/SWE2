@@ -49,3 +49,4 @@ C:\Users\aluno\Downloads\CBTSWE2_TP01\obj\Debug\net6.0\refint\TP01.dll
 C:\Users\aluno\Downloads\CBTSWE2_TP01\obj\Debug\net6.0\TP01.pdb
 C:\Users\aluno\Downloads\CBTSWE2_TP01\obj\Debug\net6.0\TP01.genruntimeconfig.cache
 C:\Users\aluno\Downloads\CBTSWE2_TP01\obj\Debug\net6.0\ref\TP01.dll
+
