@@ -1,13 +1,36 @@
-CREATE DATABASE GerenciadorProdutosDB;
-GO
+using System.Diagnostics;
+using CBTSWE2_TP03.Models;
+using CBTSWE2_TP03.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
-USE GerenciadorProdutosDB;
-GO
+namespace CBTSWE2_TP03.Controllers
+{
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+        private readonly IProdutoRepository _produtoRepository;
 
-CREATE TABLE Produtos (
-Id int identity(1,1) primary key,
-Nome nvarchar(100) not null,
-Descricao nvarchar(500) not null,
-Preco decimaL(18,2) not null check (Preco > 0),
-QuantidadeEstoque int not null check (QuantidadeEstoque >= 0)
-);
+        public HomeController(ILogger<HomeController> logger, IProdutoRepository produtoRepository)
+        {
+            _logger = logger;
+            _produtoRepository = produtoRepository;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var produtos = await _produtoRepository.GetProdutos();
+            return View(produtos);
+        }
+
+        public IActionResult Creditos()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
