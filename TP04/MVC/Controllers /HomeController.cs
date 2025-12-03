@@ -3,8 +3,6 @@ using Models;
 using MVC.Repositories;
 using System.Diagnostics;
 
-//Desenvolvido por Laysa Bernardes e Lucas Lopes
-
 namespace MVC.Controllers
 {
     public class HomeController : Controller
